@@ -1,0 +1,18 @@
+﻿name: Clean Repository
+
+on: workflow_dispatch
+
+permissions:
+  contents: write
+  deployments: write
+  actions: write
+
+jobs:
+  clean-repo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository Cleaner
+        uses: ThorLL/repo-cleaner-gh-action@main
+        with:
+          gh-token: ${{ secrets.GITHUB_TOKEN }}
+          init-message: 'Init Commit'
